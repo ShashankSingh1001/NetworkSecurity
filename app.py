@@ -1,14 +1,14 @@
 import os,sys
-import certifi
+import certifi # type: ignore
 
 ca = certifi.where()
 
-from dotenv import load_dotenv
+from dotenv import load_dotenv # type: ignore
 load_dotenv()
 mongo_db_url = os.getenv("MONGO_DB_URL")
 print(mongo_db_url)
 
-import pymongo
+import pymongo # type: ignore
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
 from networksecurity.pipeline.training_pipeline import TrainingPipeline
@@ -16,11 +16,11 @@ from networksecurity.pipeline.training_pipeline import TrainingPipeline
 from networksecurity.utils.main_utils.utils import load_object
 from networksecurity.utils.ml_utils.model.estimator import NetworkModel
 
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI, File, UploadFile, Request
-from uvicorn import run as app_run
-from fastapi.responses import Response
-from starlette.responses import RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware # type: ignore
+from fastapi import FastAPI, File, UploadFile, Request # type: ignore
+from uvicorn import run as app_run # type: ignore
+from fastapi.responses import Response # type: ignore
+from starlette.responses import RedirectResponse # type: ignore
 import pandas as pd
 
 client = pymongo.MongoClient(mongo_db_url, tlsCAFile=ca)
@@ -41,7 +41,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from fastapi.templating import Jinja2Templates
+from fastapi.templating import Jinja2Templates # type: ignore
 templates = Jinja2Templates(directory="./templates")
 
 @app.get("/",tags=["authentication"])

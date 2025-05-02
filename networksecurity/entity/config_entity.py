@@ -11,6 +11,7 @@ class TrainingPipelineConfig:
         self.pipeline_name = training_pipeline.PIPELINE_NAME
         self.artifacts_name = training_pipeline.ARTIFACTS_DIR
         self.artifact_dir = os.path.join(training_pipeline.ARTIFACTS_DIR,timestamp)
+        self.model_dir = os.path.join("final_model")
         self.timestamp = timestamp
 
 class DataingestionConfig:

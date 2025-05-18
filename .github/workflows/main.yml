@@ -44,6 +44,15 @@ jobs:
             - name: Login to Amazon ECR
               id: login-ecr
               uses: aws-actions/amazon-ecr-login@v1
+            
+            - name: Clean up disk space before build
+              run: |
+                echo "Freeing up space on the runner..."
+                sudo rm -rf /usr/share/dotnet
+                sudo rm -rf /opt/ghc
+                sudo rm -rf "/usr/local/share/boost"
+                sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+                docker system prune -af
 
             - name: Build,tag and push image to Amazon ECR
               id: build-image

@@ -161,9 +161,5 @@ Feel free to fork this project, open issues, or submit pull requests.
 ---
 
 
-- Optionally change the GitHub repo link and title to match your repo.
-
-Let me know if you want a markdown preview or enhancements like GitHub badges or a live API demo GIF!
-
 
 
